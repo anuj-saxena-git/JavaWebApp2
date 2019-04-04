@@ -4,7 +4,7 @@ pipeline {
   }
   environment {
     ORG = 'anuj'
-    APP_NAME = 'javawebapp2'
+    APP_NAME = 'java-webapp'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
   }
   stages {
@@ -60,7 +60,7 @@ pipeline {
       }
       steps {
         container('maven') {
-          dir('charts/javawebapp2') {
+          dir('charts/java-webapp') {
             sh "jx step changelog --version v\$(cat ../../VERSION)"
 
             // release the helm chart
